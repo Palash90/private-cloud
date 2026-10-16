@@ -28,9 +28,9 @@ POLL_SEC = 2
 # consecutive polls (debounce against relay chatter / brownout flicker).
 STABLE_POLLS = 2
 
-MAC = "«PC_MAC»"          # PC MAC for etherwake
+MAC = "<PC_MAC>"          # PC MAC for etherwake
 IFACE = "eth0"                     # iface etherwake sends on
-SSH_TARGET = "«PC_USER»@«PC_IP»"   # PC to shut down
+SSH_TARGET = "<PC_USER>@<PC_IP>"   # PC to shut down
 # GPU kill first (~100W instant shed in ~5s), then full poweroff (~30s).
 # pkill patterns must NOT match this SSH session itself (they don't:
 # no 'ssh'/'poweroff' literal in the patterns below).
@@ -49,10 +49,10 @@ LINK_WAIT_BUDGET = 30             # seconds to wait for eth0 carrier + ping
                                  # before SSH attempts (own budget, abortable)
 
 HDD_MOUNT = "/mnt/hdd"             # Pi-local mountpoint ("" disables HDD)
-HDD_DEVICE = "/dev/disk/by-id/«HDD_BY_ID»"  # whole disk, NOT partition
+HDD_DEVICE = "<HDD_BY_ID>"  # whole disk, NOT partition
 HDD_PATTERNS = ("[s]yncthing", "[r]sync")  # local writers to stop before unmount
                                  # (bracket trick: never match our own shell)
-HDD_USB = "2-2"                    # suffix under /sys/bus/usb/devices
+HDD_USB = "<HDD_USB_PORT>"                    # suffix under /sys/bus/usb/devices
 HDD_WAKE_DELAY = 90                # seconds after etherwake before reattach
 
 DRY_RUN = False                    # True = print actions without executing
