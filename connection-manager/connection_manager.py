@@ -8,15 +8,15 @@ import time
 
 import requests
 
-import utils.env_utils
-
 # When systemd (or any caller) launches this script by path, the script's own
 # directory — not the repo root — is prepended to sys.path. Add the repo root
-# so the ``server`` package (e.g. server.dotenv) resolves regardless of how
-# the script is invoked.
+# so repo-local packages (for example ``utils``) resolve regardless of how the
+# script is invoked.
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
+
+import utils.env_utils
 
 HEARTBEAT_URL = os.environ.get("HEARTBEAT_URL")
 GODADDY_API_KEY = os.environ.get("GODADDY_API_KEY")
