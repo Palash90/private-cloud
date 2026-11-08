@@ -1,17 +1,15 @@
 [Unit]
-Description=Power-cut detector on BCM 18
+Description=Power-cut detector (BCM 18)
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
-User=palash
-WorkingDirectory=/home/palash/power-ctl
-ExecStart=/usr/bin/python3 /home/palash/power-ctl/power_cut_detect.py
+User=<service-user>
+WorkingDirectory=<repo>/power-ctl
+ExecStart=/usr/bin/python3 <repo>/power-ctl/power_cut_detect.py
 Restart=on-failure
 RestartSec=5
-StandardOutput=journal
-StandardError=journal
 
 [Install]
 WantedBy=multi-user.target

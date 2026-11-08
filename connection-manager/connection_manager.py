@@ -18,21 +18,17 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-HEARTBEAT_URL = os.environ.get(
-    "HEARTBEAT_URL", "http://10.66.66.1:9863/heartbeat"
-)
-GODADDY_API_KEY = os.environ.get("GODADDY_API_KEY", "")
-GODADDY_API_SECRET = os.environ.get("GODADDY_API_SECRET", "")
-DDNS_DOMAIN = os.environ.get("DDNS_DOMAIN", "palashkantikundu.in")
-DDNS_SUBDOMAIN = os.environ.get("DDNS_SUBDOMAIN", "home")
+HEARTBEAT_URL = os.environ.get("HEARTBEAT_URL")
+GODADDY_API_KEY = os.environ.get("GODADDY_API_KEY")
+GODADDY_API_SECRET = os.environ.get("GODADDY_API_SECRET")
+DDNS_DOMAIN = os.environ.get("DDNS_DOMAIN")
+DDNS_SUBDOMAIN = os.environ.get("DDNS_SUBDOMAIN")
 DDNS_CHECK_INTERVAL = int(os.environ.get("DDNS_CHECK_INTERVAL", "300"))
 
 HEARTBEAT_INTERVAL = 10
 _public_ipv4_cache = {"ip": None, "ts": 0.0}
 _last_dns_check = 0.0
 _last_known_ipv6 = None
-
-print(GODADDY_API_KEY, GODADDY_API_SECRET)
 
 def _get_current_ipv6():
     """Get this machine's stable global IPv6 address."""

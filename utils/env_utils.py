@@ -12,14 +12,12 @@ import os
 from pathlib import Path
 
 def load_dotenv(path=None):
-    """Load ``path`` (default: repo-root ``.env``) into ``os.environ``."""
+    """Load ``path`` (default: ``~/.env``) into ``os.environ``."""
     if path is None:
-        path = "/home/palash/.env"
+        path = Path.home() / ".env"
     path = Path(path)
     if not path.is_file():
-        print("Path is not file")
         return False
-    print("Path is file")
     loaded = False
     for raw in path.read_text().splitlines():
         line = raw.strip()

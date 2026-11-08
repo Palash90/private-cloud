@@ -1,2 +1,29 @@
 __pycache__/
 *.py[cod]
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Keys, certs, credentials
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+credentials*.json
+*service-account*.json
+*service_account*.json
+kubeconfig
+kubeconfig.*
+
+# Infra state (Terraform, etc.)
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform/
